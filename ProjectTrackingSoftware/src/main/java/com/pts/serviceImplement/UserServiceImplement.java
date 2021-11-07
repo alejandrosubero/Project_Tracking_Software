@@ -14,22 +14,24 @@ Create on Sun Nov 07 14:17:04 ART 2021
 
 package com.pts.serviceImplement;
 
-import com.pts.service.UserService;
+import com.pts.entitys.Rol;
+import com.pts.entitys.User;
+import com.pts.pojo.EntityRespone;
 import com.pts.repository.UserRepository;
-
-import java.util.Optional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
-
+import com.pts.security.EncryptPassword;
+import com.pts.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
-import com.pts.entitys.User;
-import com.pts.entitys.Rol;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 
 
 @Service
@@ -43,31 +45,72 @@ public class UserServiceImplement implements UserService {
     @Autowired
     private UserRepository userrepository;
 
+    @Autowired
+    private EncryptPassword encryptPasswordService;
 
     @Override
-    public boolean newUser(User user , String Key) {
+    public EntityRespone newUser(User user , String Key) {
         logger.info("Save a new User");
-
         try {
+
+            if (userExist(user.getUsername())){
+                return  new EntityRespone("newUserExist01", "The user Name existe use oter userName");
+            }
+            List<Object> response = new ArrayList<Object>();
+            user.setAccountnonexpired(true);
+            user.setAccountnonlocked(true);
+            user.setCredentialsnonexpired(true);
+            user.setEnabled(true);
+            user.setFullname(user.getUserlastname()+" "+user.getUserfirsname());
+
+            String pass = encryptPasswordService.encriptaPassword(user.getPassword());
+            user.setPassword(pass);
+            user.setUsercode(createUserCode());
+
             if( Key != null && Key.equals(keyAd)){
                 user.getrol().add(new Rol("ADMIN", "user administrative"));
-                userrepository.save(user);
+                response.add(this.saveUser(user));
             }else{
                 user.getrol().add(new Rol("USER", "normal user"));
-                userrepository.save(user);
+                response.add(this.saveUser(user));
             }
-            return true;
+
+            return  new EntityRespone("", "The user was save",response);
+
         } catch (DataAccessException e) {
             logger.error(" ERROR : " + e);
-            return false;
+            return  new EntityRespone("newUserExist00", "An error occurred while trying to save a new user");
         }
     }
+
+
+    private Boolean userExist(String name ){
+        User userFile = this.findByUserName(name);
+        if( userFile.getUsername() != null ) {
+            return true;
+        }
+            return false;
+    }
+
+    private String createUserCode() {
+        return generateCode();
+    }
+
+    private String generateCode() {
+        String code = UUID.randomUUID().toString();
+        User userFile = findByUserCode(code);
+        if (userFile.getUsercode() != null && userFile.getUsercode().equals(code)){
+            generateCode();
+        }
+        return code;
+    }
+
 
 
     @Override
     public User findByUserCode(String userCode) {
 
-        logger.info("Starting getUser");
+        logger.info("Starting findByUserCode");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByUserCode(userCode);
         if (fileOptional1.isPresent()) {
@@ -102,7 +145,6 @@ public class UserServiceImplement implements UserService {
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByUserLastName(userLastName);
-
         if (fileOptional1.isPresent()) {
             try {
                 userEntity = fileOptional1.get();
@@ -132,7 +174,7 @@ public class UserServiceImplement implements UserService {
     @Override
     public User findByUserName(String userName) {
 
-        logger.info("Starting getUser");
+        logger.info("Starting findByUserName");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByUserName(userName);
         if (fileOptional1.isPresent()) {
@@ -195,7 +237,6 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByAccountNonExpired(Boolean accountNonExpired) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByAccountNonExpired(accountNonExpired);
@@ -211,11 +252,9 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByAccountNonLocked(Boolean accountNonLocked) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByAccountNonLocked(accountNonLocked);
-
         if (fileOptional1.isPresent()) {
             try {
                 userEntity = fileOptional1.get();
@@ -228,11 +267,9 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByCredentialsNonExpired(Boolean credentialsNonExpired) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByCredentialsNonExpired(credentialsNonExpired);
-
         if (fileOptional1.isPresent()) {
             try {
                 userEntity = fileOptional1.get();

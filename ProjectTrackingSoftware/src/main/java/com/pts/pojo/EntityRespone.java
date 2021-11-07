@@ -19,15 +19,30 @@ import java.util.List;
 
 
 public class EntityRespone implements Serializable {
-private static final long serialVersionUID = -7540722158274302905L;
+
+    private static final long serialVersionUID = -7540722158274302905L;
 
 
     private String error;
-   private String mensaje;
-   private List<Object> entidades;
+    private String mensaje;
+    private List<Object> entidades;
+
+    public EntityRespone() {
+    }
+
+    public EntityRespone(String error, String mensaje) {
+        this.error = error;
+        this.mensaje = mensaje;
+    }
 
 
- public String getError() {
+    public EntityRespone(String error, String mensaje, List<Object> entidades) {
+        this.error = error;
+        this.mensaje = mensaje;
+        this.entidades = entidades;
+    }
+
+    public String getError() {
         return error;
     }
 

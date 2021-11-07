@@ -27,7 +27,7 @@ import springfox.documentation.service.Contact;
 
 		private ApiInfo apiEndPointsInfo() {
 
-		Contact contact = new Contact("Alejandro", "https://github.com/SuberoPrueba", "blu@Gmail.com");
+		Contact contact = new Contact("Alejandro Subero", "https://github.com/alejandrosubero", "alejandrosubero.ar@gmail.com");
 
 			return new ApiInfoBuilder()
 				.title("ProjectTrackingSoftware")

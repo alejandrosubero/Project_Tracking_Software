@@ -22,10 +22,29 @@ import org.springframework.stereotype.Service;
 import com.pts.pojo.UserPojo;import com.pts.entitys.Rol;
 import com.pts.pojo.RolPojo;
 
+@Service
+public class UserValidation {
 
-
-    @Service
-    public class UserValidation {
+    public UserPojo validaNewUser(UserPojo user) {
+        UserPojo pojo = null;
+        try {
+            if (user != null) {
+                if (
+                                user.getUserfirsname() != null &&
+                                user.getUserlastname() != null &&
+                                user.getUsername() != null &&
+                                user.getMail() != null &&
+                                user.getPassword() != null
+                                      ) {
+                    pojo = user;
+                }
+            }
+            return pojo;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return pojo;
+        }
+    }
 
         public UserPojo valida(UserPojo user) {
         UserPojo pojo = null;
@@ -53,6 +72,7 @@ import com.pts.pojo.RolPojo;
             return pojo;
         }
     }
+
 // remplace de name of variable for you proyecte
     public Long valida_id( String poder) {
              Long id_Delete = 0l;        try {

@@ -39,8 +39,8 @@ public class UserPublicController {
 
 
     @PostMapping("/save")
-    private Boolean saveUser(@RequestBody UserPojo user, @RequestHeader("keyAdmin")  String keyAdmin){
-        return userService.newUser(userMapper.pojoToEntity(userValidationService.valida(user)), keyAdmin);
+    private EntityRespone saveUser(@RequestBody UserPojo user, @RequestHeader("keyAdmin")  String keyAdmin){
+        return userService.newUser(userMapper.pojoToEntity(userValidationService.validaNewUser(user)), keyAdmin);
     }
 
 

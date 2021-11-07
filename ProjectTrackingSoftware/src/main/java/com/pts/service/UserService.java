@@ -19,12 +19,12 @@ import java.util.Optional;import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import com.pts.entitys.User;import com.pts.entitys.Rol;
-
+import com.pts.pojo.EntityRespone;
 
 
 public interface UserService{
 
-	    public boolean newUser(User user , String Key);
+	    public EntityRespone newUser(User user , String Key);
 
 	    public User  findByUserCode(String userCode);
 
