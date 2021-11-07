@@ -23,8 +23,10 @@ import com.pts.entitys.User;import com.pts.entitys.Rol;
 
 
 public interface UserService{
- 
-		public User  findByUserCode(String userCode);
+
+	    public boolean newUser(User user , String Key);
+
+	    public User  findByUserCode(String userCode);
 
 		public User  findByUserFirsName(String userFirsName);
 

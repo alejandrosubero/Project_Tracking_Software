@@ -21,55 +21,72 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-
 @Entity
 @Table(name = "rol")
 public class Rol implements Serializable {
 
-private static final long serialVersionUID = -3370223320765665234L;
+    private static final long serialVersionUID = -3370223320765665234L;
 
-		@Id
-		@GeneratedValue(generator = "sequence_mat_id_generator")
-		@SequenceGenerator(name="sequence_mat_id_generator", initialValue= 25, allocationSize=1000)
-		@Column(name = "idRol", updatable = true, nullable = false, length = 25)
-		private Long idRol;
-
-
-		@Column(name = "rol", updatable = true, nullable = true, length = 200)
-		private String rol;
+    @Id
+    @GeneratedValue(generator = "sequence_mat_id_generator")
+    @SequenceGenerator(name = "sequence_mat_id_generator", initialValue = 25, allocationSize = 1000)
+    @Column(name = "idRol", updatable = true, nullable = false, length = 25)
+    private Long idRol;
 
 
-		@Column(name = "description", updatable = true, nullable = true, length = 200)
-		private String description;
+    @Column(name = "rol", updatable = true, nullable = true, length = 200)
+    private String rol;
 
 
-		public Long getIdrol() { 
-			return idRol;
-		}
-		public void setIdrol(Long  idRol) {
-			this.idRol = idRol;
-		}
-		public String getRol() { 
-			return rol;
-		}
-		public void setRol(String  rol) {
-			this.rol = rol;
-		}
-		public String getDescription() { 
-			return description;
-		}
-		public void setDescription(String  description) {
-			this.description = description;
-		}
-			public boolean equalsRol(Object o) {
-				if (this == o) return true;
-				if (o == null || getClass() != o.getClass()) return false;
-					Rol rol = (Rol) o;
-						return 			Objects.equals(idRol, rol.idRol) ||
-			Objects.equals(rol, rol.rol) ||
-			Objects.equals(description, rol.description);
+    @Column(name = "description", updatable = true, nullable = true, length = 200)
+    private String description;
 
-}}
+    public Rol() {
+    }
+
+    public Rol(String rol) {
+        this.rol = rol;
+    }
+
+    public Rol(String rol, String description) {
+        this.rol = rol;
+        this.description = description;
+    }
+
+    public Long getIdrol() {
+        return idRol;
+    }
+
+    public void setIdrol(Long idRol) {
+        this.idRol = idRol;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean equalsRol(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rol rol = (Rol) o;
+        return Objects.equals(idRol, rol.idRol) ||
+                Objects.equals(rol, rol.rol) ||
+                Objects.equals(description, rol.description);
+
+    }
+}
  /*
  Copyright (C) 2008 Google Inc.
 * Licensed to the Apache Software Foundation (ASF) under one or more
