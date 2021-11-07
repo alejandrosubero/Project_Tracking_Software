@@ -1,4 +1,4 @@
-package com.com.pts;
+package com.pts;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.jupiter.api.Test;
 @SpringBootTest
