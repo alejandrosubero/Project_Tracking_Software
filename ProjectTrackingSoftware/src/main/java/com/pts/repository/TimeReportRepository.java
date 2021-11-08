@@ -19,7 +19,9 @@ import java.util.List;import java.util.Date;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import com.pts.entitys.TimeReport;
+import org.springframework.stereotype.Repository;
 
+@Repository("timeReport")
 public interface TimeReportRepository extends CrudRepository< TimeReport, Long> {
  
 		public Optional<TimeReport> findByTimeDedicate(Date timeDedicate);
