@@ -33,7 +33,7 @@ import com.pts.pojo.RolPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/rol")
+@RequestMapping("/api/rol")
 public class RolController {
 
     @Autowired

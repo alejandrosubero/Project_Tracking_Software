@@ -33,7 +33,7 @@ import com.pts.pojo.TypeReportPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/typereport")
+@RequestMapping("/api/typereport")
 public class TypeReportController {
 
     @Autowired

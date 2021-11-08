@@ -33,7 +33,7 @@ import com.pts.pojo.TimeReportPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/timereport")
+@RequestMapping("/api/timereport")
 public class TimeReportController {
 
     @Autowired

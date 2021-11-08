@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("api/user")
+@RequestMapping("/new/user")
 public class UserPublicController {
 
     @Autowired
@@ -38,13 +38,14 @@ public class UserPublicController {
     RolMapper rolMapper;
 
 
-    @PostMapping("/save")
-    private EntityRespone saveUser(@RequestBody UserPojo user, @RequestHeader("keyAdmin")  String keyAdmin){
+    //@PostMapping("/saveNewUser")
+    @RequestMapping(value = "/saveNewUser", method = RequestMethod.POST, consumes="application/json")
+    private EntityRespone saveNewUser(@RequestBody UserPojo user, @RequestHeader("keyAdmin")  String keyAdmin){
         return userService.newUser(userMapper.pojoToEntity(userValidationService.validaNewUser(user)), keyAdmin);
     }
 
 
-    @GetMapping("/username/{username}")
+    @GetMapping("/usernameNew/{username}")
     private  ResponseEntity<EntityRespone> findByUserName( @PathVariable("username") String  username) {
 
         try {

@@ -33,7 +33,7 @@ import com.pts.pojo.TimeAssignedPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/timeassigned")
+@RequestMapping("/api/timeassigned")
 public class TimeAssignedController {
 
     @Autowired

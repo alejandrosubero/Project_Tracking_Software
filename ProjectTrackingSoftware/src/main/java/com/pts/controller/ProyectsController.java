@@ -33,7 +33,7 @@ import com.pts.pojo.ProyectsPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/proyects")
+@RequestMapping("/api/proyects")
 public class ProyectsController {
 
     @Autowired

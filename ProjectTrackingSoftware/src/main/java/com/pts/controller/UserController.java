@@ -37,7 +37,7 @@ import com.pts.pojo.RolPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
@@ -307,8 +307,6 @@ public class UserController {
         @PostMapping("/save")
         private Boolean  saveUser(@RequestBody UserPojo  user){ 
             return userService.saveUser(userMapper.pojoToEntity(userValidationService.valida(user)) ); }
-
-
 
 
 

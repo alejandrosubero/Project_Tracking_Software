@@ -33,7 +33,7 @@ import com.pts.pojo.PrioritysPojo;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/prioritys")
+@RequestMapping("/api/prioritys")
 public class PrioritysController {
 
     @Autowired
