@@ -4,7 +4,7 @@ Create on Sun Nov 07 14:17:04 ART 2021
 *Copyright (C) 121.
 @author Alejandro Subero
 @author Subero Alejandro
-@author ANACODE AND IVANCODE
+@author ANACODE
 @since 11.0
 @version1.0.0.0
 @version  %I%, %G%
@@ -19,7 +19,9 @@ import java.util.List;import java.util.Date;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import com.pts.entitys.AssociatedProyect;
+import org.springframework.stereotype.Repository;
 
+@Repository("associated")
 public interface AssociatedProyectRepository extends CrudRepository< AssociatedProyect, Long> {
  
 		public Optional<AssociatedProyect> findByIdProyect(Long idProyect);

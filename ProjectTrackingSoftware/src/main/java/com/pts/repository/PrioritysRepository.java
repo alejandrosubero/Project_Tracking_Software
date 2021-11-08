@@ -19,7 +19,9 @@ import java.util.List;import java.util.Date;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import com.pts.entitys.Prioritys;
+import org.springframework.stereotype.Repository;
 
+@Repository("prioritys")
 public interface PrioritysRepository extends CrudRepository< Prioritys, Long> {
  
 		public Optional<Prioritys> findByValue(String value);

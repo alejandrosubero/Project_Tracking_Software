@@ -2,10 +2,14 @@ package com.pts.security;
 
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class EncryptPassword {
+
+    public EncryptPassword() {
+    }
 
     public  String md5Hex(String password) {
         String EncriptadoConMD5 = DigestUtils.md5Hex(password);

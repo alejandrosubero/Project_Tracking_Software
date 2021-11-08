@@ -4,18 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e8cb0bc-f824-4282-a8da-bd8cd0b0c6f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptAES.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptPassword.java" afterDir="false" />
+    <list default="true" id="e5972ebe-f919-440d-936e-4239daa7e2b9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/configurations/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/configurations/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/ProjectTrackingSoftwareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/ProjectTrackingSoftwareApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/AssociatedProyectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/AssociatedProyectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/PrioritysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/PrioritysController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/ProyectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/ProyectsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/ReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/RolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/RolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeAssignedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeAssignedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TypeReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TypeReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserPublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserPublicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/pojo/EntityRespone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/pojo/EntityRespone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/entitys/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/entitys/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/pojo/UserPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/pojo/UserPojo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/AssociatedProyectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/AssociatedProyectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/PrioritysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/PrioritysRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/ReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/ReportRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/RolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/RolRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeAssignedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeAssignedRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeReportRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TypeReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TypeReportRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/UserServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/UserServiceImplement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/validation/UserValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/validation/UserValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +42,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -55,7 +73,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="20bGH1AWsoVuFduBmQAu9kMjdmm" />
+  <component name="ProjectId" id="20bx1iaPKgiYzRMjDuUbHJnmWRw" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -79,6 +97,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ProjectTrackingSoftwareApplication" />
@@ -88,23 +117,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5e8cb0bc-f824-4282-a8da-bd8cd0b0c6f0" name="Changes" comment="" />
-      <created>1636305785356</created>
+      <changelist id="e5972ebe-f919-440d-936e-4239daa7e2b9" name="Changes" comment="" />
+      <created>1636326877274</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1636305785356</updated>
+      <updated>1636326877274</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

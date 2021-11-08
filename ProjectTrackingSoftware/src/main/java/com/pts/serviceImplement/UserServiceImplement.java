@@ -18,6 +18,7 @@ import com.pts.entitys.Rol;
 import com.pts.entitys.User;
 import com.pts.pojo.EntityRespone;
 import com.pts.repository.UserRepository;
+import com.pts.security.EncryptAES;
 import com.pts.security.EncryptPassword;
 import com.pts.service.UserService;
 import org.apache.commons.logging.Log;
@@ -26,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,39 +44,48 @@ public class UserServiceImplement implements UserService {
     @Value("${keyAdmin}")
     private String keyAd;
 
+    @Value("${saltAESKey}")
+    private String saltAES;
+
+    @Autowired
+    private EncryptAES encryptAES;
+
+    @Autowired
+    EncryptPassword encryptPasswordService;
+
     @Autowired
     private UserRepository userrepository;
 
     @Autowired
-    private EncryptPassword encryptPasswordService;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public EntityRespone newUser(User user , String Key) {
         logger.info("Save a new User");
         try {
 
-            if (userExist(user.getUsername())){
+            if (userExist(user.getUserName())){
                 return  new EntityRespone("newUserExist01", "The user Name existe use oter userName");
             }
             List<Object> response = new ArrayList<Object>();
-            user.setAccountnonexpired(true);
-            user.setAccountnonlocked(true);
-            user.setCredentialsnonexpired(true);
+            user.setAccountNonExpired(true);
+            user.setAccountNonLocked(true);
+            user.setCredentialsNonExpired(true);
             user.setEnabled(true);
-            user.setFullname(user.getUserlastname()+" "+user.getUserfirsname());
+            user.setFullName(user.getUserFirsName()+" "+ user.getUserLastName());
 
-            String pass = encryptPasswordService.encriptaPassword(user.getPassword());
+            String pass = encryptAES.encript(user.getPassword(), saltAES);
+
             user.setPassword(pass);
-            user.setUsercode(createUserCode());
+            user.setUserCode(createUserCode());
 
             if( Key != null && Key.equals(keyAd)){
-                user.getrol().add(new Rol("ADMIN", "user administrative"));
+                user.setRol("ADMIN");
                 response.add(this.saveUser(user));
             }else{
-                user.getrol().add(new Rol("USER", "normal user"));
+                user.setRol("USER");
                 response.add(this.saveUser(user));
             }
-
             return  new EntityRespone("", "The user was save",response);
 
         } catch (DataAccessException e) {
@@ -86,7 +97,7 @@ public class UserServiceImplement implements UserService {
 
     private Boolean userExist(String name ){
         User userFile = this.findByUserName(name);
-        if( userFile.getUsername() != null ) {
+        if( userFile.getUserName() != null ) {
             return true;
         }
             return false;
@@ -99,12 +110,11 @@ public class UserServiceImplement implements UserService {
     private String generateCode() {
         String code = UUID.randomUUID().toString();
         User userFile = findByUserCode(code);
-        if (userFile.getUsercode() != null && userFile.getUsercode().equals(code)){
+        if (userFile.getUserCode() != null && userFile.getUserCode().equals(code)){
             generateCode();
         }
         return code;
     }
-
 
 
     @Override
@@ -443,10 +453,8 @@ public class UserServiceImplement implements UserService {
         logger.info("Get allProyect");
         List<User> listaUser = new ArrayList<User>();
         for (User user : this.getAllUser()) {
-            for (Rol rolx : user.getrol()) {
-                if (rolx.equalsRol(rol)) {
-                    listaUser.add(user);
-                }
+           if(user.getRol().equals(rol.getRol())) {
+               listaUser.add(user);
             }
         }
         return listaUser;

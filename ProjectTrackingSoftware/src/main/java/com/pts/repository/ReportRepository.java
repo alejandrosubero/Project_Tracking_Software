@@ -19,7 +19,9 @@ import java.util.List;import java.util.Date;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import com.pts.entitys.Report;
+import org.springframework.stereotype.Repository;
 
+@Repository("report")
 public interface ReportRepository extends CrudRepository< Report, Long> {
  
 		public Optional<Report> findByUserCode(String userCode);

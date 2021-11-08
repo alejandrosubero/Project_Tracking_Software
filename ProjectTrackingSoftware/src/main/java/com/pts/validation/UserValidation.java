@@ -30,9 +30,9 @@ public class UserValidation {
         try {
             if (user != null) {
                 if (
-                                user.getUserfirsname() != null &&
-                                user.getUserlastname() != null &&
-                                user.getUsername() != null &&
+                                user.getUserFirsName() != null &&
+                                user.getUserLastName() != null &&
+                                user.getUserName() != null &&
                                 user.getMail() != null &&
                                 user.getPassword() != null
                                       ) {
@@ -51,17 +51,17 @@ public class UserValidation {
         try {
              if (user != null) {
               if (
-        user.getUsercode() != null &&
-        user.getUserfirsname() != null &&
-        user.getUserlastname() != null &&
-        user.getFullname() != null &&
-        user.getUsername() != null &&
+        user.getUserCode() != null &&
+                user.getUserFirsName() != null &&
+                user.getUserLastName() != null &&
+        user.getFullName() != null &&
+        user.getUserName() != null &&
         user.getMail() != null &&
         user.getPassword() != null &&
         user.getImagen() != null &&
-        user.getAccountnonexpired() != null &&
-        user.getAccountnonlocked() != null &&
-        user.getCredentialsnonexpired() != null &&
+        user.getAccountNonExpired() != null &&
+        user.getAccountNonLocked() != null &&
+        user.getCredentialsNonExpired() != null &&
         user.getEnabled() != null        ) {
         pojo = user;
          }

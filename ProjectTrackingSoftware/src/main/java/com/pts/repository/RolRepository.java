@@ -19,7 +19,9 @@ import java.util.List;import java.util.Date;
 import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import com.pts.entitys.Rol;
+import org.springframework.stereotype.Repository;
 
+@Repository("rolR")
 public interface RolRepository extends CrudRepository< Rol, Long> {
  
 		public Optional<Rol> findByRol(String rol);
