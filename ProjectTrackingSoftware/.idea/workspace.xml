@@ -5,32 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5972ebe-f919-440d-936e-4239daa7e2b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/EmailDataConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/entitys/EmailDataConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/mapper/EmailDataConfigMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/pojo/EmailDataConfigPojo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/pojo/EmailPojo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/EmailDataConfigRepositoriy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/service/EmailDataConfigService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/service/MailServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/EmailDataConfigServiceImplemet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/MailServicesImplment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pts/validation/EmailDataConfigValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/ProjectTrackingSoftwareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/ProjectTrackingSoftwareApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/AssociatedProyectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/AssociatedProyectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/PrioritysController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/PrioritysController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/ProyectsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/ProyectsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/RolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/RolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeAssignedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeAssignedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TimeReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/TypeReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/TypeReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserPublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/controller/UserPublicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/entitys/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/entitys/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/pojo/UserPojo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/pojo/UserPojo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/AssociatedProyectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/AssociatedProyectRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/PrioritysRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/PrioritysRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/ReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/ReportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/RolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/RolRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeAssignedRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeAssignedRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TimeReportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/TypeReportRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/TypeReportRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/security/EncryptPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/UserServiceImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/serviceImplement/UserServiceImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/validation/UserValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/validation/UserValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pts/mapper/PrioritysMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pts/mapper/PrioritysMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
@@ -43,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -82,6 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="ProjectTrackingSoftwareApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -124,5 +114,16 @@
       <updated>1636326877274</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

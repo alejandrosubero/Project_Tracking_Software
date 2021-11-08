@@ -14,39 +14,36 @@ Create on Sun Nov 07 14:17:04 ART 2021
 
 
 package com.pts.mapper;
+
 import com.pts.entitys.Prioritys;
 import com.pts.pojo.PrioritysPojo;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
-import java.util.Date;
-import java.util.ArrayList;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
-    @Component
-    public class PrioritysMapper {
+@Component
+public class PrioritysMapper {
 
     public Prioritys pojoToEntity(PrioritysPojo pojo) {
-		ModelMapper modelMapper = new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
         Prioritys entity = null;
 
-		if ( pojo != null) {
-   		entity = modelMapper.map(pojo, Prioritys.class);
-		}
-	return  entity;
-}
+        if (pojo != null) {
+            entity = modelMapper.map(pojo, Prioritys.class);
+        }
+        return entity;
+    }
+
     public Prioritys entityToPojo(Prioritys entity) {
- 		ModelMapper modelMapper = new ModelMapper();
+        ModelMapper modelMapper = new ModelMapper();
         Prioritys pojo = null;
 
-		if ( entity != null) {
-   		pojo = modelMapper.map(entity, Prioritys.class);
-		}
-	return  pojo;
+        if (entity != null) {
+            pojo = modelMapper.map(entity, Prioritys.class);
+        }
+        return pojo;
+    }
 }
-}
+
  /*
  Copyright (C) 2008 Google Inc.
 * Licensed to the Apache Software Foundation (ASF) under one or more
