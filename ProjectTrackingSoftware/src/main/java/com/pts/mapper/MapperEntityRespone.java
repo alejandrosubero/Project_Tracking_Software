@@ -31,7 +31,7 @@ public <T> EntityRespone setEntityT(List<T> t) {
     }
 public <T> EntityRespone setEntityTobj(T t ) {
         EntityRespone entityRespone = new EntityRespone();
-        List<Object> ob = new ArrayList<>();
+        List<Object> ob = new ArrayList<Object>();
         Object objects = t;
        ob.add(objects);
        entityRespone.setEntidades(ob);
@@ -39,7 +39,7 @@ public <T> EntityRespone setEntityTobj(T t ) {
     }
  public <T> EntityRespone setEntityResponT(T t , String mensaje, String error) {
         EntityRespone entityRespone = new EntityRespone();
-        List<Object> ob = new ArrayList<>();
+        List<Object> ob = new ArrayList<Object>();
         Object objects = t;
         ob.add(objects);
         entityRespone.setError(error);

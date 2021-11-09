@@ -102,15 +102,15 @@ private static final long serialVersionUID = -2510701842067538213L;
 
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
 
-		private   List<AssociatedProyect>associatedProyects= new ArrayList<>();
+		private   List<AssociatedProyect>associatedProyects= new ArrayList<AssociatedProyect>();
 
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
 
-		private   List<TimeReport>times = new ArrayList<>();
+		private   List<TimeReport>times = new ArrayList<TimeReport>();
 
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
 
-		private   List<TimeAssigned>assigmeds= new ArrayList<>();
+		private   List<TimeAssigned>assigmeds= new ArrayList<TimeAssigned>();
 
 		public Long getIdreport() { 
 			return idReport;
