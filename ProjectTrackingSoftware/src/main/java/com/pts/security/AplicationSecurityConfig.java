@@ -15,6 +15,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.crypto.SecretKey;
 
@@ -41,6 +44,21 @@ public class AplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         this.secretKey = secretKey;
     }
 
+    
+    @SuppressWarnings("deprecation")
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+
+            }           
+
+        };          
+    }
+    
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -51,6 +69,8 @@ public class AplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
                 .addFilterAfter(new JwtTokenVerifier(jwtConfig, secretKey), JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
+                .antMatchers("/AuthoritiesCotroller/**").permitAll()
+                .antMatchers("/login","/logout").permitAll()
                 .antMatchers("/","/start", "index", "/css/*,/js/*", "/new/user/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
                 .anyRequest()

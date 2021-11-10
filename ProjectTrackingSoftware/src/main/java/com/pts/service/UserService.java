@@ -35,6 +35,8 @@ public interface UserService{
 		public User  findByFullName(String fullName);
 
 		public User  findByUserName(String userName);
+		
+		//public Optional<User> findByUserName(String userName);
 
 		public User  findByMail(String mail);
 
