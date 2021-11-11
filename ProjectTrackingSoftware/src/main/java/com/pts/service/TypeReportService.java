@@ -14,10 +14,8 @@ Create on Sun Nov 07 14:17:04 ART 2021
 
 package com.pts.service ;
 
-import java.util.Optional;import java.util.Date;
-
-import java.util.ArrayList;
 import java.util.List;
+
 import com.pts.entitys.TypeReport;
 
 
@@ -32,8 +30,11 @@ public interface TypeReportService{
 		public List<TypeReport>  findByDescriptonContaining(String descripton);
 
 		public TypeReport findById(Long id);
+		
 		public boolean saveTypeReport(TypeReport typereport);
+		
 		public List<TypeReport> getAllTypeReport();
+		
 		public boolean deleteTypeReport(Long id);
 
 }

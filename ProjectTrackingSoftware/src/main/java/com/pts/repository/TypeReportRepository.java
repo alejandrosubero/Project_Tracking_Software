@@ -28,8 +28,8 @@ public interface TypeReportRepository extends CrudRepository< TypeReport, Long> 
 		public List<TypeReport> findByTypeContaining(String type);
 		public Optional<TypeReport> findByDescripton(String descripton);
 		public List<TypeReport> findByDescriptonContaining(String descripton);
-
 }
+
  /*
  Copyright (C) 2008 Google Inc.
 * Licensed to the Apache Software Foundation (ASF) under one or more

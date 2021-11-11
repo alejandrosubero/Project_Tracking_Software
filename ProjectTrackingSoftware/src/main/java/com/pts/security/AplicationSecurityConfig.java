@@ -73,6 +73,7 @@ public class AplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login","/logout").permitAll()
                 .antMatchers("/","/start", "index", "/css/*,/js/*", "/new/user/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
+                .antMatchers("/codeReport/**").hasAnyRole(ADMIN.name())
                 .anyRequest()
                 .authenticated();
     }

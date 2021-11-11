@@ -15,13 +15,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.pts.entitys.User;
 import com.pts.pojo.LoginAuthPojo;
 import com.pts.pojo.LogingResponse;
+import com.pts.pojo.UserPojo;
 import com.pts.service.AuthoritiesLogingService;
+import com.pts.service.UserService;
 
 @Service
 public class AuthoritiesLogingServiceImplement implements AuthoritiesLogingService {
 
+	 @Autowired
+	 private UserService userService;
 	
 	@Autowired
 	private RestTemplateBuilder restTemplate;
@@ -30,14 +35,12 @@ public class AuthoritiesLogingServiceImplement implements AuthoritiesLogingServi
 	private String urlLogin;
 	
 	
-	public void getHeaders() {
-		   
+	public void getHeaders() {   
 	        ResponseEntity responseEntity = restTemplate.build().getForEntity("http://localhost:8080/getEmployee/{id}", String.class, 2);
 	        responseEntity.getHeaders().entrySet().forEach((k) -> {
 	            System.out.println("Key is:"+ k.getKey());
 	            System.out.println("Values are:"+k.getValue().stream().collect(Collectors.joining()));
 	        });
-	      
 	    }
 
 
@@ -61,6 +64,12 @@ public class AuthoritiesLogingServiceImplement implements AuthoritiesLogingServi
 		ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
 				
 		login.setStatus(response.getStatusCodeValue());
+		
+		if (response.getStatusCodeValue() == 200){
+			User user =  userService.findByUserName(auth.getUsername());
+			login.setUserCode(user.getUserCode());
+			login.setUsername(auth.getUsername());
+		}
 		
 		response.getHeaders().entrySet().forEach((k) -> {
 			if (k.getKey().equals("Authorization")) {
