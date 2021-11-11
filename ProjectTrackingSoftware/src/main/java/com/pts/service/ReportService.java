@@ -19,6 +19,7 @@ import java.util.Optional;import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import com.pts.entitys.Report;import com.pts.entitys.TypeReport;
+import com.pts.pojo.ReportPojo;
 import com.pts.entitys.AssociatedProyect;
 import com.pts.entitys.TimeReport;
 import com.pts.entitys.TimeAssigned;
@@ -27,6 +28,9 @@ import com.pts.entitys.TimeAssigned;
 
 public interface ReportService{
  
+	
+		public ReportPojo saveNewReport(ReportPojo report);
+	
 		public Report  findByUserCode(String userCode);
 
 		public Report  findByUserAssigned(String userAssigned);

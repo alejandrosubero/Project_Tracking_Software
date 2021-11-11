@@ -55,6 +55,7 @@ import org.modelmapper.ModelMapper;
         Report entity = null;
 
 		if ( pojo != null) {
+			entity = new Report();
    		entity = modelMapper.map(pojo, Report.class);
 		}
 	return  entity;

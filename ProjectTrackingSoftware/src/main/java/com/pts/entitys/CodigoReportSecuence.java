@@ -26,6 +26,8 @@ public class CodigoReportSecuence {
 	@Column(name = "description", updatable = true, nullable = true, length = 200)
 	private String description;
 
+
+	
 	public CodigoReportSecuence() {
 	}
 

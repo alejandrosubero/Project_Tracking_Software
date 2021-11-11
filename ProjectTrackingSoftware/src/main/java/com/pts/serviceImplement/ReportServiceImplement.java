@@ -17,10 +17,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -29,15 +31,21 @@ import com.pts.entitys.Report;
 import com.pts.entitys.TimeAssigned;
 import com.pts.entitys.TimeReport;
 import com.pts.entitys.TypeReport;
+import com.pts.mapper.ReportMapper;
+import com.pts.pojo.ReportPojo;
 import com.pts.repository.ReportRepository;
 import com.pts.service.CodigoReportSecuenceService;
 import com.pts.service.ReportService;
+import com.pts.service.SequencesReportService;
 
 @Service
 public class ReportServiceImplement implements ReportService {
 
 	protected static final Log logger = LogFactory.getLog(ReportServiceImplement.class);
 
+	 @Value("${codeSecuence}")
+	 private String codeSecuence;
+	
 	
 	@Autowired
 	private ReportRepository reportrepository;
@@ -46,6 +54,84 @@ public class ReportServiceImplement implements ReportService {
 	@Autowired
 	private CodigoReportSecuenceService codigoReportSecuenceService;
 
+	
+	@Autowired
+	private SequencesReportService sequencesReportService;
+	
+	
+	@Autowired
+	private ReportMapper reportMapper;
+	
+	@Override
+	public List<Report> getAllReport() {
+		logger.info("Get allProyect");
+		List<Report> listaReport = new ArrayList<Report>();
+		reportrepository.findAll().forEach(report -> listaReport.add(report));
+		return listaReport;
+	}
+	
+	
+	@Override
+	public boolean saveReport(Report report) {
+		logger.info("Save report...");
+		try { 
+			// set code of report
+			report.setCommitmentDate(new Date());
+			reportrepository.save(report);
+			return true;
+		} catch (DataAccessException e) {
+			logger.error(" ERROR : " + e);
+			return false;
+		}
+	}
+
+	
+	@Override	
+	public ReportPojo saveNewReport(ReportPojo report) {
+		logger.info("Save New Report...");
+		try { 
+			
+			Long idReport = sequencesReportService.getSecuence(codeSecuence);
+			report.setid(idReport);
+			reportrepository.save(reportMapper.pojoToEntity(report));
+			
+//			Long idReport = sequencesReportService.getSecuence(codeSecuence);
+//			report.setid(idReport);
+//			report.setStartDate(new Date());
+//			report.setCommitmentDate(new Date());
+//			report.setStateReport("NOT TREATED");
+//			report.setState("NOT TREATED");
+//			report.setLinkAcceso("link");
+//			
+//			reportrepository.save(reportMapper.pojoToEntity(report));
+//			
+//			ReportPojo re = reportMapper.entityToPojo(reportrepository.findById(idReport).get());
+//			
+//			
+//			System.out.println(report);
+//			System.out.println(re);
+//			
+//			
+//						
+//			re.getTimes().stream().forEach(time ->time.setIdReport(idReport));
+//			
+//			re.getAssigmeds().stream().forEach(assigmeds -> {
+//				assigmeds.setIdreport(idReport);
+//				assigmeds.setStatereport(report.getStateReport());
+//			});
+//			
+//			String codigo = codigoReportSecuenceService.generateNewCodigoReport(report.getTypeReport().getTypeCode());
+//			System.out.println(codigo);
+//			//re.putInCodeReport(codigo);
+			
+			return reportMapper.entityToPojo(reportrepository.findById(idReport).get());
+			
+			
+		} catch (DataAccessException e) {
+			logger.error(" ERROR : " + e);
+			return null;
+		}
+	}
 	
 	
 	@Override
@@ -65,6 +151,17 @@ public class ReportServiceImplement implements ReportService {
 		return reportEntity;
 	}
 
+	
+	//TODO: TEST IF WORCK
+	private List<TimeAssigned> updateAssignedList(List<TimeAssigned> assigmeds){	
+		assigmeds.stream().forEach(assigmed-> {
+					if (assigmed.getIdtimeassigned() == null) {
+						assigmeds.stream().forEach(as -> as.setStateassigned("no assignment"));
+					}
+				});
+		return assigmeds;
+	}
+	
 	
 	
 	@Override
@@ -308,31 +405,7 @@ public class ReportServiceImplement implements ReportService {
 		return reportEntity;
 	}
 
-	
-	@Override
-	public List<Report> getAllReport() {
-		logger.info("Get allProyect");
-		List<Report> listaReport = new ArrayList<Report>();
-		reportrepository.findAll().forEach(report -> listaReport.add(report));
-		return listaReport;
-	}
-
-	
-	@Override
-	public boolean saveReport(Report report) {
-		logger.info("Save report");
-		try { 
-			// set code of report
-			report.setCodereports(codigoReportSecuenceService.generateNewCodigoReport(report.gettypeReport().getTypeCode()));
-			reportrepository.save(report);
-			return true;
-		} catch (DataAccessException e) {
-			logger.error(" ERROR : " + e);
-			return false;
-		}
-	}
-
-	
+		
 	@Override
 	public boolean deleteReport(Long id) {
 		logger.info("Delete Proyect");
@@ -500,7 +573,7 @@ public class ReportServiceImplement implements ReportService {
 		List<Report> listaReport = new ArrayList<Report>();
 		
 		for (Report report : this.getAllReport()) {
-			if (report.gettypeReport().equals(typereport)) {
+			if (report.getTypeReport().equals(typereport)) {
 				listaReport.add(report);
 			}
 		}
@@ -515,7 +588,7 @@ public class ReportServiceImplement implements ReportService {
 		logger.info("Get allProyect");
 		List<Report> listaReport = new ArrayList<Report>();
 		for (Report report : this.getAllReport()) {
-			for (AssociatedProyect associatedProyectsx : report.getassociatedProyects()) {
+			for (AssociatedProyect associatedProyectsx : report.getAssociatedProyects()) {
 				if (associatedProyectsx.equalsAssociatedProyect(associatedProyects)) {
 					listaReport.add(report);
 				}
@@ -532,8 +605,8 @@ public class ReportServiceImplement implements ReportService {
 		logger.info("Get allProyect");
 		List<Report> listaReport = new ArrayList<Report>();
 		for (Report report : this.getAllReport()) {
-			for (TimeReport timesx : report.gettimes()) {
-				if (timesx.equalsTimeReport(times)) {
+			for (TimeReport timesx : report.getTimes()) {
+				if (timesx.equals(times)) {
 					listaReport.add(report);
 				}
 			}
@@ -550,7 +623,7 @@ public class ReportServiceImplement implements ReportService {
 		logger.info("Get allProyect");
 		List<Report> listaReport = new ArrayList<Report>();
 		for (Report report : this.getAllReport()) {
-			for (TimeAssigned assigmedsx : report.getassigmeds()) {
+			for (TimeAssigned assigmedsx : report.getAssigmeds()) {
 				if (assigmedsx.equalsTimeAssigned(assigmeds)) {
 					listaReport.add(report);
 				}

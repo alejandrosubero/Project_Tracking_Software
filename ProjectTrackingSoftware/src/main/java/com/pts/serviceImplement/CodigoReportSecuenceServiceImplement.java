@@ -30,6 +30,7 @@ public class CodigoReportSecuenceServiceImplement implements CodigoReportSecuenc
 	@Autowired
 	private CodigoReportSecuenceMapper mapper;
 
+	
 	@Override
 	public boolean saveCodigoReportSecuence(CodigoReportSecuence newCodigo) {
 		try {
@@ -61,7 +62,6 @@ public class CodigoReportSecuenceServiceImplement implements CodigoReportSecuenc
 	
 	@Override
 	public boolean deleteCodigoReportSecuence(String codigo) {
-
 		logger.info("Delete saveCodigoReportSecuence");
 		boolean clave = false;
 		try {
@@ -84,10 +84,11 @@ public class CodigoReportSecuenceServiceImplement implements CodigoReportSecuenc
 	}
 
 	
-	
 	private String codigoReport(CodigoReportSecuence codeReport) {	
 		return codeReport.getCodigo() + "-" + codeReport.getSecuencia();
 	}
+	
+	
 	
 }
 
