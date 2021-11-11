@@ -37,12 +37,14 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public Rol entityToPojo(Rol entity) {
+    
+    
+    public RolPojo entityToPojo(Rol entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        Rol pojo = null;
+ 		RolPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, Rol.class);
+   		pojo = modelMapper.map(entity, RolPojo.class);
 		}
 	return  pojo;
 }

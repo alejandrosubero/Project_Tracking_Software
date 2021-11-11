@@ -58,7 +58,10 @@ private static final long serialVersionUID = 6610616627140038246L;
 		@Column(name = "userAssigned", updatable = true, nullable = true, length = 200)
 		private String userAssigned;
 
-
+		
+		public TimeAssigned() { }
+		
+		
 		public Long getIdtimeassigned() { 
 			return idTimeAssigned;
 		}

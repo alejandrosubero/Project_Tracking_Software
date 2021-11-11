@@ -96,22 +96,20 @@ private static final long serialVersionUID = -2510701842067538213L;
 
 
 		@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-
 		private TypeReport typeReport;
 
-
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
-
 		private   List<AssociatedProyect>associatedProyects= new ArrayList<AssociatedProyect>();
 
+		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
-
 		private   List<TimeReport>times = new ArrayList<TimeReport>();
 
+		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		private List<TimeAssigned> assigmeds= new ArrayList<TimeAssigned>();
 
-		private   List<TimeAssigned>assigmeds= new ArrayList<TimeAssigned>();
-
+		
 		public Long getIdreport() { 
 			return idReport;
 		}

@@ -28,21 +28,25 @@ public class AssociatedProyect implements Serializable {
 
 private static final long serialVersionUID = 8577714768873588282L;
 
-		@Column(name = "idProyect", updatable = true, nullable = true, length = 200)
-		private Long idProyect;
-
-
-		@Column(name = "idReport", updatable = true, nullable = true, length = 200)
-		private Long idReport;
-
-
+		
 		@Id
 		@GeneratedValue(generator = "sequence_mat_id_generator")
 		@SequenceGenerator(name="sequence_mat_id_generator", initialValue= 25, allocationSize=1000)
 		@Column(name = "idAssociatedProyect", updatable = true, nullable = false, length = 25)
 		private Long idAssociatedProyect;
+		
+		
+		@Column(name = "idProyect", updatable = true, nullable = true, length = 200)
+		private Long idProyect;
 
+		
+		@Column(name = "idReport", updatable = true, nullable = true, length = 200)
+		private Long idReport;
 
+		
+		public  AssociatedProyect() {
+		}
+		
 		public Long getIdproyect() { 
 			return idProyect;
 		}

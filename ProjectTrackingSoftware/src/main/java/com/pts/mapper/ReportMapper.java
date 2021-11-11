@@ -48,6 +48,8 @@ import org.modelmapper.ModelMapper;
       @Autowired
       private TimeAssignedMapper timeassignedmapper;
 
+      
+      
     public Report pojoToEntity(ReportPojo pojo) {
 		ModelMapper modelMapper = new ModelMapper();
         Report entity = null;
@@ -57,12 +59,15 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public Report entityToPojo(Report entity) {
+    
+    
+    
+    public ReportPojo entityToPojo(Report entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        Report pojo = null;
+ 		ReportPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, Report.class);
+   		pojo = modelMapper.map(entity, ReportPojo.class);
 		}
 	return  pojo;
 }

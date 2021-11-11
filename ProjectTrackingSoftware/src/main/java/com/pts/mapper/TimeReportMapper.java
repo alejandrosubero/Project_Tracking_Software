@@ -37,12 +37,14 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public TimeReport entityToPojo(TimeReport entity) {
+    
+    
+    public TimeReportPojo entityToPojo(TimeReport entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        TimeReport pojo = null;
+ 		TimeReportPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, TimeReport.class);
+   		pojo = modelMapper.map(entity, TimeReportPojo.class);
 		}
 	return  pojo;
 }

@@ -37,12 +37,12 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public Proyects entityToPojo(Proyects entity) {
+    public ProyectsPojo entityToPojo(Proyects entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        Proyects pojo = null;
+ 		ProyectsPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, Proyects.class);
+   		pojo = modelMapper.map(entity, ProyectsPojo.class);
 		}
 	return  pojo;
 }
