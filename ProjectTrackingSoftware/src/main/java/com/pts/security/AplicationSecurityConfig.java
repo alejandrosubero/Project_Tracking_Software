@@ -45,23 +45,11 @@ public class AplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     
-    @SuppressWarnings("deprecation")
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
-
-            }           
-
-        };          
-    }
-    
+ 
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http .cors().and()
                 .csrf().disable()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -74,7 +62,6 @@ public class AplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login","/logout").permitAll()
                 .antMatchers("/","/start", "index", "/css/*,/js/*", "/new/user/**").permitAll()
                 .antMatchers("/api/**").hasAnyRole(USER.name(), ADMIN.name())
-                .antMatchers("/codeReport/**").hasAnyRole(ADMIN.name())
                 .anyRequest()
                 .authenticated();
     }

@@ -76,6 +76,8 @@ public class ReportServiceImplement implements ReportService {
 		logger.info("Save report...");
 		try { 
 			// set code of report
+			Long idReport = sequencesReportService.getSecuence(codeSecuence);
+			report.setid(idReport);
 			report.setCommitmentDate(new Date());
 			reportrepository.save(report);
 			return true;
@@ -89,10 +91,27 @@ public class ReportServiceImplement implements ReportService {
 	@Override	
 	public ReportPojo saveNewReport(ReportPojo report) {
 		logger.info("Save New Report...");
-		try { 
-			
+		
+		try {
 			Long idReport = sequencesReportService.getSecuence(codeSecuence);
 			report.setid(idReport);
+			
+			
+			if (report.getComentarios() != null && report.getComentarios().size() > 0) {
+				report.getComentarios().stream().forEach(comments -> comments.setIdReport(idReport));
+			}
+			
+			if (report.getAssociatedProyects() != null && report.getAssociatedProyects().size() > 0) {
+				report.getAssociatedProyects().stream().forEach(associate -> associate.setIdreport(idReport));
+			}
+			
+			report.getTimes().stream().forEach(time ->time.setIdReport(idReport));
+			
+			report.getAssigmeds().stream().forEach(assigmeds -> {
+				assigmeds.setIdReport(idReport);
+				assigmeds.setStateReport(report.getStateReport());
+			});
+			
 			reportrepository.save(reportMapper.pojoToEntity(report));
 			
 //			Long idReport = sequencesReportService.getSecuence(codeSecuence);

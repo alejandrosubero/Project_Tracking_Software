@@ -38,7 +38,7 @@ public class AssociatedProyect implements Serializable {
 	@Column(name = "idProyect", updatable = true, nullable = true, length = 200)
 	private Long idProyect;
 
-	@Column(name = "idReport", updatable = true, nullable = true, length = 200)
+	@Column(name = "report_id")
 	private Long idReport;
 
 	public AssociatedProyect() {

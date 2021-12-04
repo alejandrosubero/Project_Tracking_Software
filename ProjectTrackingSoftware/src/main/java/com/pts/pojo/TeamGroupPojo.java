@@ -1,72 +1,31 @@
-package com.pts.entitys;
+package com.pts.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+public class TeamGroupPojo {
 
-@Entity
-@Table(name = "teamGroup")
-public class TeamGroup {
-
-	@Id
-	@GeneratedValue(generator = "sequence_mat_id_generator")
-	@SequenceGenerator(name="sequence_mat_id_generator", initialValue= 5, allocationSize=10000)
-	@Column(name = "idTeamGroup", updatable = true, nullable = false, length = 25)
 	private Long idTeamGroup;
-
-	@Column(name = "team", updatable = true, nullable = true, length = 200)
 	private String team;
-	
-	@Column(name = "description", updatable = true, nullable = true, length = 200)
 	private String description;
-
-
-	public  TeamGroup() { }
 	
 	
-	public TeamGroup(String team, String description) {
-		super();
-		this.team = team;
-		this.description = description;
+	public TeamGroupPojo() {
 	}
 	
 	
-	public TeamGroup(Long id, String team, String description) {
-		super();
-		this.idTeamGroup = id;
-		this.team = team;
-		this.description = description;
-	}
-
-
 	public Long getIdTeamGroup() {
 		return idTeamGroup;
 	}
-
-
 	public void setIdTeamGroup(Long idTeamGroup) {
 		this.idTeamGroup = idTeamGroup;
 	}
-
-
 	public String getTeam() {
 		return team;
 	}
-
-
 	public void setTeam(String team) {
 		this.team = team;
 	}
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -91,7 +50,7 @@ public class TeamGroup {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TeamGroup other = (TeamGroup) obj;
+		TeamGroupPojo other = (TeamGroupPojo) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
@@ -110,5 +69,9 @@ public class TeamGroup {
 		return true;
 	}
 
+
+	
+	
+	
 	
 }

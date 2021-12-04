@@ -29,7 +29,7 @@ public class Comment implements Serializable{
 	@Column(name = "userCode", updatable = true, nullable = true, length = 200)
 	private String userCode;
 
-	@Column(name = "idReport", updatable = true, nullable = true, length = 20)
+	@Column(name = "report_id")
 	private Long idReport;
 
 	@Column(name = "dateCreate", updatable = true, nullable = true)

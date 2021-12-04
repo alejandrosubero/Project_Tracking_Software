@@ -24,6 +24,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -100,17 +101,22 @@ private static final long serialVersionUID = -2510701842067538213L;
 
 		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		@JoinColumn(name = "report_id", referencedColumnName = "idReport")
 		private   List<Comment> comentarios = new ArrayList<Comment>();
 		
+		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		@JoinColumn(name = "report_id", referencedColumnName = "idReport")
 		private   List<AssociatedProyect>associatedProyects= new ArrayList<AssociatedProyect>();
 
 		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		@JoinColumn(name = "report_id", referencedColumnName = "idReport")
 		private   List<TimeReport>times = new ArrayList<TimeReport>();
 
 		
 		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		@JoinColumn(name = "report_id", referencedColumnName = "idReport")
 		private List<TimeAssigned> assigmeds= new ArrayList<TimeAssigned>();
 
 		

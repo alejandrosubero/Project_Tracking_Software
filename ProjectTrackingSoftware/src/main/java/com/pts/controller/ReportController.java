@@ -101,6 +101,13 @@ public class ReportController {
 	private Boolean saveReport(@RequestBody ReportPojo report) {
 		return reportService.saveReport(reportMapper.pojoToEntity(reportValidationService.valida(report)));
 	}
+	
+	@GetMapping("/GetAllReport")
+	private ResponseEntity<EntityRespone> getAllReport() {
+		EntityRespone entityRespone = mapperEntityRespone.setEntityT(reportService.getAllReport());
+		return new ResponseEntity<EntityRespone>(entityRespone, HttpStatus.OK);
+	}
+	
 
 	@GetMapping("/Getusercode/{usercode}")
 	private ResponseEntity<EntityRespone> findByUserCode(@PathVariable("usercode") String usercode) {
@@ -375,11 +382,7 @@ public class ReportController {
 		return new ResponseEntity<EntityRespone>(entityRespone, HttpStatus.OK);
 	}
 
-	@GetMapping("/GetAllReport")
-	private ResponseEntity<EntityRespone> getAllReport() {
-		EntityRespone entityRespone = mapperEntityRespone.setEntityT(reportService.getAllReport());
-		return new ResponseEntity<EntityRespone>(entityRespone, HttpStatus.OK);
-	}
+	
 
 	@DeleteMapping("/deleteReport/{id}")
 	private boolean deleteReport(@PathVariable("id") String id) {

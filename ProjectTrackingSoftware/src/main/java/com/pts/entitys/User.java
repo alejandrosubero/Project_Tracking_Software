@@ -73,7 +73,6 @@ public class User implements Serializable {
 	@Column(name = "rol", updatable = true, nullable = true, length = 200)
 	private String rol;
 
-	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
 	private List<TeamGroup> teamGroup = new ArrayList<TeamGroup>();
 

@@ -22,7 +22,7 @@ import com.pts.service.CodigoReportSecuenceService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/codeReport")
+@RequestMapping("/api/codeReport")
 public class CodigoReportSecuenceController {
 
 	@Autowired

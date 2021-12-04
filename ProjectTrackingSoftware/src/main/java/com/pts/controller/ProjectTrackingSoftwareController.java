@@ -93,13 +93,13 @@ public class ProjectTrackingSoftwareController {
 		
 		List<TimeAssignedPojo> assigmeds = new ArrayList<TimeAssignedPojo>();
 		TimeAssignedPojo asse = new TimeAssignedPojo();
-		asse.setIdtimeassigned(67L);
-		asse.setAssigneddate(new Date());
-		asse.setStateassigned("NOT TREATED");
-		asse.setStatereport("NOT TREATED");
-		asse.setUsercode("a0c33aeb-4c13-4834-8260-9f520b7a54a8");
-		asse.setUserassigned("alejandro");
-		asse.setIdreport(idReport);
+//		asse.setIdtimeassigned(67L);
+//		asse.setAssigneddate(new Date());
+//		asse.setStateassigned("NOT TREATED");
+//		asse.setStatereport("NOT TREATED");
+//		asse.setUsercode("a0c33aeb-4c13-4834-8260-9f520b7a54a8");
+//		asse.setUserassigned("alejandro");
+//		asse.setIdreport(idReport);
 		assigmeds.add(asse);
 		rep. setAssigmeds(assigmeds);
 
