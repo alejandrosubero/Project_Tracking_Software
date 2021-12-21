@@ -37,12 +37,14 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public AssociatedProyect entityToPojo(AssociatedProyect entity) {
+    
+    
+    public AssociatedProyectPojo entityToPojo(AssociatedProyect entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        AssociatedProyect pojo = null;
+ 		AssociatedProyectPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, AssociatedProyect.class);
+   		pojo = modelMapper.map(entity, AssociatedProyectPojo.class);
 		}
 	return  pojo;
 }

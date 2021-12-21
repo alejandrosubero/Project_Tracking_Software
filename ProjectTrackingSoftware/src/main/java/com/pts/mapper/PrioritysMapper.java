@@ -33,12 +33,12 @@ public class PrioritysMapper {
         return entity;
     }
 
-    public Prioritys entityToPojo(Prioritys entity) {
+    public PrioritysPojo entityToPojo(Prioritys entity) {
         ModelMapper modelMapper = new ModelMapper();
-        Prioritys pojo = null;
+        PrioritysPojo pojo = null;
 
         if (entity != null) {
-            pojo = modelMapper.map(entity, Prioritys.class);
+            pojo = modelMapper.map(entity, PrioritysPojo.class);
         }
         return pojo;
     }

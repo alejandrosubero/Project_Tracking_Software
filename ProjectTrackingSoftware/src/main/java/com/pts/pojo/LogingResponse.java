@@ -4,7 +4,10 @@ public class LogingResponse {
 
 	private String authorization;
 	private String token;
+	private String username;
+	private String userCode;
 	private Object status;
+	
 	
 	
 	public LogingResponse() {
@@ -40,6 +43,32 @@ public class LogingResponse {
 	public void setStatus(Object status) {
 		this.status = status;
 	}
+<<<<<<< HEAD
+=======
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+	public String getUserCode() {
+		return userCode;
+	}
+
+
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
+	
+	
+	
+>>>>>>> 4aa4eca8fb3ad406e116ecb793b78d068c235318
 	
 	
 }

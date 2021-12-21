@@ -43,55 +43,164 @@ private static final long serialVersionUID = -2462812707329335139L;
 		private Date timeDedicateTotal;
 
 
-		@Column(name = "idReport", updatable = true, nullable = true, length = 200)
+		@Column(name = "report_id")
 		private Long idReport;
 
 
 		@Column(name = "userCode", updatable = true, nullable = true, length = 200)
 		private String userCode;
 
+		@Column(name = "timeDedicateIn", updatable = true, nullable = true, length = 200)
+		private String timeDedicateIn;
+		
+		
+		@Column(name = "comments", updatable = true, nullable = true, length = 4000)
+		private String commenst;
+		
+		
+		public  TimeReport() {	}
 
-		public Long getIdtimereport() { 
+
+		public Long getIdTimeReport() {
 			return idTimeReport;
 		}
-		public void setIdtimereport(Long  idTimeReport) {
+
+
+		public void setIdTimeReport(Long idTimeReport) {
 			this.idTimeReport = idTimeReport;
 		}
-		public Date getTimededicate() { 
+
+
+		public Date getTimeDedicate() {
 			return timeDedicate;
 		}
-		public void setTimededicate(Date  timeDedicate) {
+
+
+		public void setTimeDedicate(Date timeDedicate) {
 			this.timeDedicate = timeDedicate;
 		}
-		public Date getTimededicatetotal() { 
+
+
+		public Date getTimeDedicateTotal() {
 			return timeDedicateTotal;
 		}
-		public void setTimededicatetotal(Date  timeDedicateTotal) {
+
+
+		public void setTimeDedicateTotal(Date timeDedicateTotal) {
 			this.timeDedicateTotal = timeDedicateTotal;
 		}
-		public Long getIdreport() { 
+
+
+		public Long getIdReport() {
 			return idReport;
 		}
-		public void setIdreport(Long  idReport) {
+
+
+		public void setIdReport(Long idReport) {
 			this.idReport = idReport;
 		}
-		public String getUsercode() { 
+
+
+		public String getUserCode() {
 			return userCode;
 		}
-		public void setUsercode(String  userCode) {
+
+
+		public void setUserCode(String userCode) {
 			this.userCode = userCode;
 		}
-			public boolean equalsTimeReport(Object o) {
-				if (this == o) return true;
-				if (o == null || getClass() != o.getClass()) return false;
-					TimeReport timereport = (TimeReport) o;
-						return 			Objects.equals(idTimeReport, timereport.idTimeReport) ||
-			Objects.equals(timeDedicate, timereport.timeDedicate) ||
-			Objects.equals(timeDedicateTotal, timereport.timeDedicateTotal) ||
-			Objects.equals(idReport, timereport.idReport) ||
-			Objects.equals(userCode, timereport.userCode);
 
-}}
+
+		public String getTimeDedicateIn() {
+			return timeDedicateIn;
+		}
+
+
+		public void setTimeDedicateIn(String timeDedicateIn) {
+			this.timeDedicateIn = timeDedicateIn;
+		}
+
+
+		public String getCommenst() {
+			return commenst;
+		}
+
+
+		public void setCommenst(String commenst) {
+			this.commenst = commenst;
+		}
+
+
+		public static long getSerialversionuid() {
+			return serialVersionUID;
+		}
+
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((commenst == null) ? 0 : commenst.hashCode());
+			result = prime * result + ((idReport == null) ? 0 : idReport.hashCode());
+			result = prime * result + ((idTimeReport == null) ? 0 : idTimeReport.hashCode());
+			result = prime * result + ((timeDedicate == null) ? 0 : timeDedicate.hashCode());
+			result = prime * result + ((timeDedicateIn == null) ? 0 : timeDedicateIn.hashCode());
+			result = prime * result + ((timeDedicateTotal == null) ? 0 : timeDedicateTotal.hashCode());
+			result = prime * result + ((userCode == null) ? 0 : userCode.hashCode());
+			return result;
+		}
+
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			TimeReport other = (TimeReport) obj;
+			if (commenst == null) {
+				if (other.commenst != null)
+					return false;
+			} else if (!commenst.equals(other.commenst))
+				return false;
+			if (idReport == null) {
+				if (other.idReport != null)
+					return false;
+			} else if (!idReport.equals(other.idReport))
+				return false;
+			if (idTimeReport == null) {
+				if (other.idTimeReport != null)
+					return false;
+			} else if (!idTimeReport.equals(other.idTimeReport))
+				return false;
+			if (timeDedicate == null) {
+				if (other.timeDedicate != null)
+					return false;
+			} else if (!timeDedicate.equals(other.timeDedicate))
+				return false;
+			if (timeDedicateIn == null) {
+				if (other.timeDedicateIn != null)
+					return false;
+			} else if (!timeDedicateIn.equals(other.timeDedicateIn))
+				return false;
+			if (timeDedicateTotal == null) {
+				if (other.timeDedicateTotal != null)
+					return false;
+			} else if (!timeDedicateTotal.equals(other.timeDedicateTotal))
+				return false;
+			if (userCode == null) {
+				if (other.userCode != null)
+					return false;
+			} else if (!userCode.equals(other.userCode))
+				return false;
+			return true;
+		}
+
+
+
+}
  /*
  Copyright (C) 2008 Google Inc.
 * Licensed to the Apache Software Foundation (ASF) under one or more

@@ -30,12 +30,12 @@ import com.pts.pojo.TimeAssignedPojo;
         try {
              if (timeassigned != null) {
               if (
-        timeassigned.getAssigneddate() != null &&
-        timeassigned.getStateassigned() != null &&
-        timeassigned.getStatereport() != null &&
-        timeassigned.getUsercode() != null &&
-        timeassigned.getIdreport() != null &&
-        timeassigned.getUserassigned() != null        ) {
+        timeassigned.getAssignedDate() != null &&
+        timeassigned.getStateAssigned() != null &&
+        timeassigned.getStateReport() != null &&
+        timeassigned.getUserAssigned() != null &&
+        timeassigned.getIdReport() != null
+             ) {
         pojo = timeassigned;
          }
         }

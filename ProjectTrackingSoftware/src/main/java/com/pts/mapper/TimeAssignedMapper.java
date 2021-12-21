@@ -37,12 +37,14 @@ import org.modelmapper.ModelMapper;
 		}
 	return  entity;
 }
-    public TimeAssigned entityToPojo(TimeAssigned entity) {
+    
+    
+    public TimeAssignedPojo entityToPojo(TimeAssigned entity) {
  		ModelMapper modelMapper = new ModelMapper();
-        TimeAssigned pojo = null;
+ 		TimeAssignedPojo pojo = null;
 
 		if ( entity != null) {
-   		pojo = modelMapper.map(entity, TimeAssigned.class);
+   		pojo = modelMapper.map(entity, TimeAssignedPojo.class);
 		}
 	return  pojo;
 }

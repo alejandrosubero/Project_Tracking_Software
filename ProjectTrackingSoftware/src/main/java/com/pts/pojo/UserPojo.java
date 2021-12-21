@@ -13,14 +13,11 @@ Create on Sun Nov 07 14:17:04 ART 2021
 
 package com.pts.pojo;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
 
-import com.pts.pojo.RolPojo;
+import com.pts.entitys.TeamGroup;
 
 
 public class UserPojo implements Serializable {
@@ -54,6 +51,8 @@ private static final long serialVersionUID = 7851869393937062411L;
 		private Boolean enabled;
 
 		private String rol;
+		
+		private List<TeamGroup> teamGroup = new ArrayList<TeamGroup>();
 
 	public UserPojo() {
 	}
@@ -170,18 +169,128 @@ private static final long serialVersionUID = 7851869393937062411L;
 		this.rol = rol;
 	}
 
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (!(o instanceof UserPojo)) return false;
-		UserPojo userPojo = (UserPojo) o;
-		return Objects.equals(getIdUser(), userPojo.getIdUser()) && Objects.equals(getUserCode(), userPojo.getUserCode()) && Objects.equals(getUserFirsName(), userPojo.getUserFirsName()) && Objects.equals(getUserLastName(), userPojo.getUserLastName()) && Objects.equals(getFullName(), userPojo.getFullName()) && Objects.equals(getUserName(), userPojo.getUserName()) && Objects.equals(getMail(), userPojo.getMail()) && Objects.equals(getPassword(), userPojo.getPassword()) && Objects.equals(getImagen(), userPojo.getImagen()) && Objects.equals(getAccountNonExpired(), userPojo.getAccountNonExpired()) && Objects.equals(getAccountNonLocked(), userPojo.getAccountNonLocked()) && Objects.equals(getCredentialsNonExpired(), userPojo.getCredentialsNonExpired()) && Objects.equals(getEnabled(), userPojo.getEnabled()) && Objects.equals(getRol(), userPojo.getRol());
+	public List<TeamGroup> getTeamGroup() {
+		return teamGroup;
+	}
+
+	public void setTeamGroup(List<TeamGroup> teamGroup) {
+		this.teamGroup = teamGroup;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(getIdUser(), getUserCode(), getUserFirsName(), getUserLastName(), getFullName(), getUserName(), getMail(), getPassword(), getImagen(), getAccountNonExpired(), getAccountNonLocked(), getCredentialsNonExpired(), getEnabled(), getRol());
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accountNonExpired == null) ? 0 : accountNonExpired.hashCode());
+		result = prime * result + ((accountNonLocked == null) ? 0 : accountNonLocked.hashCode());
+		result = prime * result + ((credentialsNonExpired == null) ? 0 : credentialsNonExpired.hashCode());
+		result = prime * result + ((enabled == null) ? 0 : enabled.hashCode());
+		result = prime * result + ((fullName == null) ? 0 : fullName.hashCode());
+		result = prime * result + ((idUser == null) ? 0 : idUser.hashCode());
+		result = prime * result + ((imagen == null) ? 0 : imagen.hashCode());
+		result = prime * result + ((mail == null) ? 0 : mail.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((rol == null) ? 0 : rol.hashCode());
+		result = prime * result + ((teamGroup == null) ? 0 : teamGroup.hashCode());
+		result = prime * result + ((userCode == null) ? 0 : userCode.hashCode());
+		result = prime * result + ((userFirsName == null) ? 0 : userFirsName.hashCode());
+		result = prime * result + ((userLastName == null) ? 0 : userLastName.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		return result;
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UserPojo other = (UserPojo) obj;
+		if (accountNonExpired == null) {
+			if (other.accountNonExpired != null)
+				return false;
+		} else if (!accountNonExpired.equals(other.accountNonExpired))
+			return false;
+		if (accountNonLocked == null) {
+			if (other.accountNonLocked != null)
+				return false;
+		} else if (!accountNonLocked.equals(other.accountNonLocked))
+			return false;
+		if (credentialsNonExpired == null) {
+			if (other.credentialsNonExpired != null)
+				return false;
+		} else if (!credentialsNonExpired.equals(other.credentialsNonExpired))
+			return false;
+		if (enabled == null) {
+			if (other.enabled != null)
+				return false;
+		} else if (!enabled.equals(other.enabled))
+			return false;
+		if (fullName == null) {
+			if (other.fullName != null)
+				return false;
+		} else if (!fullName.equals(other.fullName))
+			return false;
+		if (idUser == null) {
+			if (other.idUser != null)
+				return false;
+		} else if (!idUser.equals(other.idUser))
+			return false;
+		if (imagen == null) {
+			if (other.imagen != null)
+				return false;
+		} else if (!imagen.equals(other.imagen))
+			return false;
+		if (mail == null) {
+			if (other.mail != null)
+				return false;
+		} else if (!mail.equals(other.mail))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (rol == null) {
+			if (other.rol != null)
+				return false;
+		} else if (!rol.equals(other.rol))
+			return false;
+		if (teamGroup == null) {
+			if (other.teamGroup != null)
+				return false;
+		} else if (!teamGroup.equals(other.teamGroup))
+			return false;
+		if (userCode == null) {
+			if (other.userCode != null)
+				return false;
+		} else if (!userCode.equals(other.userCode))
+			return false;
+		if (userFirsName == null) {
+			if (other.userFirsName != null)
+				return false;
+		} else if (!userFirsName.equals(other.userFirsName))
+			return false;
+		if (userLastName == null) {
+			if (other.userLastName != null)
+				return false;
+		} else if (!userLastName.equals(other.userLastName))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		return true;
+	}
+
+	
 }
  /*
  Copyright (C) 2008 Google Inc.

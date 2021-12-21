@@ -20,9 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 import com.pts.entitys.User;import com.pts.entitys.Rol;
 import com.pts.pojo.EntityRespone;
+import com.pts.pojo.UserResponsePojo;
 
 
 public interface UserService{
+	
+	    public Boolean addUserToTeam(String userCode, Long id, String team, String description);
+	
+		public List<UserResponsePojo> allUsers();
 
 	    public EntityRespone newUser(User user , String Key);
 

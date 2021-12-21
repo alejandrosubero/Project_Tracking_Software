@@ -29,6 +29,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import com.pts.pojo.UserPojo;
+import com.pts.pojo.UserTeamPojo;
 import com.pts.entitys.Rol;
 import com.pts.validation.RolValidation;
 import com.pts.mapper.RolMapper;
@@ -41,25 +42,42 @@ import com.pts.pojo.RolPojo;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    UserValidation userValidationService;
+    private UserValidation userValidationService;
+    
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
-   UserMapper userMapper;
+    private MapperEntityRespone mapperEntityRespone;
 
     @Autowired
-   MapperEntityRespone mapperEntityRespone;
+    private RolValidation rolValidationService;
 
     @Autowired
-    RolValidation rolValidationService;
-
-    @Autowired
-    RolMapper rolMapper;
+    private RolMapper rolMapper;
 
 
+    @PostMapping("/addUserToTeam")
+	private Boolean addUserToTeam(@RequestBody UserTeamPojo teamUser) {
+		return userService.addUserToTeam(teamUser.getUserCode(), teamUser.getIdTeamGroup(), teamUser.getTeam(), teamUser.getDescription());
+	}
+    
 
+	@GetMapping("/GetAllUser")
+	private ResponseEntity<EntityRespone> getAllUser() {
+    //  EntityRespone entityRespone = mapperEntityRespone.setEntityT(userService.getAllUser());
+		EntityRespone entityRespone = mapperEntityRespone.setEntityT(userService.allUsers());
+		return new ResponseEntity<EntityRespone>(entityRespone, HttpStatus.OK);
+	}
+
+	@PostMapping("/save")
+	private Boolean saveUser(@RequestBody UserPojo user) {
+		return userService.saveUser(userMapper.pojoToEntity(userValidationService.valida(user)));
+	}
+    
         @GetMapping("/Getusercode/{usercode}")
         private  ResponseEntity<EntityRespone> findByUserCode(@PathVariable("usercode") String  usercode) {
         String busca = (String) userValidationService.validation(usercode);
@@ -297,18 +315,6 @@ public class UserController {
           }
 
 
-        @GetMapping("/GetAllUser")
-        private  ResponseEntity<EntityRespone> getAllUser(){
-        EntityRespone entityRespone = mapperEntityRespone.setEntityT(userService.getAllUser());
-            return new ResponseEntity<EntityRespone>(entityRespone, HttpStatus.OK); }
-
-
-
-        @PostMapping("/save")
-        private Boolean  saveUser(@RequestBody UserPojo  user){ 
-            return userService.saveUser(userMapper.pojoToEntity(userValidationService.valida(user)) ); }
-
-
 
         @DeleteMapping("/deleteUser/{id}")
             private boolean deleteUser(@PathVariable("id") String id) {
@@ -320,6 +326,19 @@ public class UserController {
             return userService.findByRolContaining(rolMapper.pojoToEntity(rolValidationService.valida(rol))); }
 
 }
+
+
+// public Boolean addUserToTeam(String userCode, String team, String description) 
+
+//@GetMapping("/greeting")
+//public ResponseEntity<String> greeting(@RequestHeader("accept-language") String language) {
+//    // code that uses the language variable
+//    return new ResponseEntity<String>(greeting, HttpStatus.OK);
+//}
+
+
+
+
  /*
  Copyright (C) 2008 Google Inc.
 * Licensed to the Apache Software Foundation (ASF) under one or more

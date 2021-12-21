@@ -15,12 +15,19 @@ Create on Sun Nov 07 14:17:04 ART 2021
 package com.pts.serviceImplement;
 
 import com.pts.entitys.Rol;
+import com.pts.entitys.TeamGroup;
 import com.pts.entitys.User;
+import com.pts.mapper.UserMapper;
 import com.pts.pojo.EntityRespone;
+import com.pts.pojo.UserPojo;
+import com.pts.pojo.UserResponsePojo;
 import com.pts.repository.UserRepository;
 import com.pts.security.EncryptAES;
 import com.pts.security.EncryptPassword;
 import com.pts.service.UserService;
+
+import net.bytebuddy.asm.Advice.OffsetMapping.ForOrigin.Renderer.ForReturnTypeName;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +66,9 @@ public class UserServiceImplement implements UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserMapper userMapper;
+    
     @Override
     public EntityRespone newUser(User user , String Key) {
         logger.info("Save a new User");
@@ -116,6 +126,18 @@ public class UserServiceImplement implements UserService {
         return code;
     }
 
+    @Override
+    public Boolean addUserToTeam(String userCode, Long id, String team, String description) {
+    	try {
+    		User user = this.findByUserCode(userCode);
+    		 user.getTeamGroup().add( new TeamGroup(id, team, description));
+    		 return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		return false;
+		}
+    }
+    
 
     @Override
     public User findByUserCode(String userCode) {
@@ -151,7 +173,6 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByUserLastName(String userLastName) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByUserLastName(userLastName);
@@ -167,7 +188,6 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByFullName(String fullName) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByFullName(fullName);
@@ -292,7 +312,6 @@ public class UserServiceImplement implements UserService {
 
     @Override
     public User findByEnabled(Boolean enabled) {
-
         logger.info("Starting getUser");
         User userEntity = new User();
         Optional<User> fileOptional1 = userrepository.findByEnabled(enabled);
@@ -310,12 +329,21 @@ public class UserServiceImplement implements UserService {
     @Override
     public List<User> getAllUser() {
         logger.info("Get allProyect");
-        List<User> listaUser = new ArrayList<User>();
+        List<User> listaUser = new ArrayList<User>();        
         userrepository.findAll().forEach(user -> listaUser.add(user));
         return listaUser;
     }
+    
+    
+    @Override
+    public List<UserResponsePojo> allUsers() {
+        logger.info("Get allProyect");
+        List<UserResponsePojo> listaUser = new ArrayList<UserResponsePojo>();
+        userrepository.findAll().forEach(user -> listaUser.add(new UserResponsePojo(userMapper.entityToPojo(user))));
+        return listaUser;
+    }
 
-
+        
     @Override
     public boolean saveUser(User user) {
         logger.info("Save Proyect");
@@ -459,6 +487,9 @@ public class UserServiceImplement implements UserService {
         }
         return listaUser;
     }
+    
+    
+ 
 
  /*
  Copyright (C) 2008 Google Inc.
