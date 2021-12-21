@@ -1,0 +1,40 @@
+{
+    "userCode": "a0c33aeb-4c13-4834-8260-9f520b7a54a8",
+    "userAssigned": "alejandro",
+    "client": " ",
+    "codeReports": "MDS-3",
+    "title": "error de generacion de id",
+    "description": "Ocurrio un problema en la generacion del id del reporte",
+    "state": "NOT TREATED",
+    "stateReport": "NOT TREATED",
+    "timeDedicate": 0,
+    "startDate": "2021-11-11T20:57:12.398Z",
+    "commitmentDate": "2021-11-11T20:57:12.398Z",
+    "priority": "Alta",
+    "linkAcceso": "link",
+    "typeReport": {
+      "type": "PROYECT",
+      "descripton": "bla bla bla",
+      "typeCode": "MDS"
+    },
+    "comentarios": [],
+    "associatedProyects": [],
+    "times": [
+      {
+        "timeDedicate": "2021-11-11T20:57:12.398Z",
+        "timeDedicateTotal": "2021-11-11T20:57:12.398Z",
+        "userCode": "a0c33aeb-4c13-4834-8260-9f520b7a54a8",
+        "timeDedicateIn": "TimeDedicateIn",
+        "commenst": "comentarios de tiempo"
+      }
+    ],
+    "assigmeds": [
+      {
+        "assignedDate": "2021-11-11T20:57:12.398Z",
+        "stateAssigned": "NOT TREATED",
+        "stateReport": "NOT TREATED",
+        "userCode": "a0c33aeb-4c13-4834-8260-9f520b7a54a8",
+        "userAssigned": "alejandro"
+      }
+    ]
+  }

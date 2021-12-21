@@ -49,8 +49,7 @@ public class UserPublicController {
     private  ResponseEntity<EntityRespone> findByUserName( @PathVariable("username") String  username) {
 
         try {
-            EntityRespone entityRespone =
-                    mapperEntityRespone.setEntityTobj(
+            EntityRespone entityRespone = mapperEntityRespone.setEntityTobj(
                             userService.findByUserName(
                                     (String) userValidationService.validation(username)));
 
