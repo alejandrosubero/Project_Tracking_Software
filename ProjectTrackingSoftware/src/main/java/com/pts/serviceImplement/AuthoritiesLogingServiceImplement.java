@@ -15,6 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.pts.pojo.LoginAuthPojo;
+import com.pts.pojo.LogingResponse;
+import com.pts.service.AuthoritiesLogingService;
 import com.pts.entitys.User;
 import com.pts.pojo.LoginAuthPojo;
 import com.pts.pojo.LogingResponse;
@@ -35,12 +38,15 @@ public class AuthoritiesLogingServiceImplement implements AuthoritiesLogingServi
 	private String urlLogin;
 	
 	
+	
+		   
 	public void getHeaders() {   
 	        ResponseEntity responseEntity = restTemplate.build().getForEntity("http://localhost:8080/getEmployee/{id}", String.class, 2);
 	        responseEntity.getHeaders().entrySet().forEach((k) -> {
 	            System.out.println("Key is:"+ k.getKey());
 	            System.out.println("Values are:"+k.getValue().stream().collect(Collectors.joining()));
 	        });
+	      
 	    }
 
 

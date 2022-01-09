@@ -43,6 +43,8 @@ public class LogingResponse {
 	public void setStatus(Object status) {
 		this.status = status;
 	}
+<<<<<<< HEAD
+=======
 
 
 	public String getUsername() {
@@ -66,6 +68,7 @@ public class LogingResponse {
 	
 	
 	
+>>>>>>> 4aa4eca8fb3ad406e116ecb793b78d068c235318
 	
 	
 }

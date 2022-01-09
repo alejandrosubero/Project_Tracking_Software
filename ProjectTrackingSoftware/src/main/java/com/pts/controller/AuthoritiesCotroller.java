@@ -27,12 +27,16 @@ public class AuthoritiesCotroller {
     private EntityRespone loginAuth(@RequestBody LoginAuthPojo loging){
     	List<Object> response = new ArrayList<Object>(); 
     try {
+    	
     	response.add(authoritiesLogingService.authorizationFromLogin(loging));
     	return  new EntityRespone("", " ",response);
 	} catch (Exception e) {
 		return  new EntityRespone("Error: " + e, "Error ",response);
 	}	
     
+    
+    
+	
 
     }
 }
