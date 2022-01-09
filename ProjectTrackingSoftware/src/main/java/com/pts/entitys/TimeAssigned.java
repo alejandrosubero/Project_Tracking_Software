@@ -54,13 +54,10 @@ public class TimeAssigned implements Serializable {
 	@Column(name = "userAssigned", updatable = true, nullable = true, length = 200)
 	private String userAssigned;
 
+	
 	public TimeAssigned() {
 
 	}
-
-	
-	
-	
 	
 	
 	public Long getIdtimeassigned() {

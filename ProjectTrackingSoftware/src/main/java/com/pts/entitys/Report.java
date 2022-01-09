@@ -120,6 +120,11 @@ private static final long serialVersionUID = -2510701842067538213L;
 		private List<TimeAssigned> assigmeds= new ArrayList<TimeAssigned>();
 
 		
+		@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = false)
+		@JoinColumn(name = "report_id", referencedColumnName = "idReport")
+		private List<AttachmentFile> attachmentFile= new ArrayList<AttachmentFile>();
+		
+		
 		public Report() {
 		}
 
