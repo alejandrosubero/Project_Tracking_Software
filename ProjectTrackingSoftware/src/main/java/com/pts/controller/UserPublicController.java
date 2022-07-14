@@ -31,11 +31,11 @@ public class UserPublicController {
     @Autowired
     MapperEntityRespone mapperEntityRespone;
 
-    @Autowired
-    RolValidation rolValidationService;
+   // @Autowired
+  //  RolValidation rolValidationService;
 
-    @Autowired
-    RolMapper rolMapper;
+  //  @Autowired
+  //  RolMapper rolMapper;
 
 
     //@PostMapping("/saveNewUser")
